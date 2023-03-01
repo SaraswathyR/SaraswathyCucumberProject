@@ -1,11 +1,14 @@
 package runners;
 
-import io.cucumber.testng.CucumberOptions;
+import org.junit.runner.RunWith;
 
+import io.cucumber.junit.CucumberOptions;
+
+@RunWith(Cucumber.class)
 @CucumberOptions(
 		features = "src/test/resources/Features"
 		,glue={"stepDefinitions"}
-	    ,tags=""
+	    ,tags="@LoginWithValidCredentials"
 	    ,dryRun = true
 		)
 public class TestRunner {
