@@ -15,15 +15,11 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 
 
 public class Base {
 	
-	public ExtentReports extent;
-	public ExtentSparkReporter spark;
+	
 
 	WebDriver driver;
 
@@ -62,17 +58,6 @@ public class Base {
 	
 	@BeforeMethod
 	public void openApplication() {
-		extent= new ExtentReports();
-		spark =new ExtentSparkReporter("ExtendReport.html");
-//		https://www.youtube.com/watch?v=PzmEiG08L78
-//		Mukesh otwani
-//		Naveens Automation labs
-//		Automation Step by Step
-//		SDET
-//		Selectors hub - Creator
-		spark.config().setTheme(Theme.DARK);
-		spark.config().setDocumentTitle("MyReport");
-		extent.attachReporter(spark);
 		launchBrowser("chrome");
 		launchApplication("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 		maximizeWindow();
@@ -80,7 +65,6 @@ public class Base {
 	
 	@AfterMethod
 	public void tearDown() {
-		extent.flush();
 		driver.close();
 		driver.quit();
 	}

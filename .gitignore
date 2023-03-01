@@ -1,1 +1,8 @@
 /target/
+.classpath
+.project
+.settings/
+/test-output/
+/drivers/
+/Drivers/
+.cucumber/
